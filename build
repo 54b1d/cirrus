@@ -5,7 +5,7 @@ cd kernel
 KERNEL_DIR=$PWD
 KERNEL_NAME="Tortiose_4.9_BE"
 PREFIX=`date +"%Y%m%d"`
-KBUILD_COMPILER_STRING="GCC Latest"
+KBUILD_COMPILER_STRING=$($KERNEL_DIR/gcc-arm64/bin/aarch64-elf-gcc --version|grep GCC)
 
 if [ $2 == "nolto" ]
 then
