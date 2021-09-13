@@ -1,0 +1,16 @@
+env:
+    NGROK_TOKEN: ""
+    TG_BOT_TOKEN: ""
+    CHATID: ""
+    CIRRUS_CLONE_DEPTH: 1
+    CIRRUS_WORKING_DIR: "/home" # Where to clone repo
+task:
+    name: rom build # Project name
+    timeout_in: 20m # Otherwise it will timeout at 60m automatically, 120m highest in free account
+    container:
+      image: 54b1d/kernel_build:latest
+      cpu: 8
+      memory: 32G
+    run_terminal_script:
+      - chmod a+x ./runssh
+      - bash ./runssh
