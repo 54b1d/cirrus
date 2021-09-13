@@ -1,3 +1,21 @@
 #! /bin/bash
 
 echo "RUNNING SSH..."
+
+TG_BOT_TOKEN=$TG_BOT_TOKEN
+CHATID=$CHATID
+
+export BOT_MSG_URL="https://api.telegram.org/bot$TG_BOT_TOKEN/sendMessage"
+
+tg_post_msg() {
+	curl -s -X POST "$BOT_MSG_URL" -d chat_id="$2" \
+	-d "disable_web_page_preview=true" \
+	-d "parse_mode=html" \
+	-d text="$1"
+}
+
+echo "sending to telegram"
+
+tg_post_msg "test message" $CHATID
+
+echo "done"
