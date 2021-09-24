@@ -95,5 +95,7 @@ gen_zip() {
 
 clone
 exports
-( set -o posix ; set ) | less
-build_kernel
+#( set -o posix ; set ) | less
+#build_kernel
+echo ""
+echo $KBUILD_COMPILER_STRING
