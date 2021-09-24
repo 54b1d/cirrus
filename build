@@ -4,7 +4,7 @@ cd kernel
 
 KERNEL_DIR=$PWD
 KERNEL_NAME="Tortiose_4.9_BE"
-PREFIX=`date +"%Y%m%d"`
+PREFIX=`date +"%Y%m%d%H%M"`
 KBUILD_COMPILER_STRING=$($KERNEL_DIR/gcc-arm64/bin/aarch64-elf-gcc --version|grep GCC)
 
 if [ $2 == "nolto" ]
@@ -95,7 +95,5 @@ gen_zip() {
 
 clone
 exports
-#( set -o posix ; set ) | less
 #build_kernel
-echo ""
 echo $KBUILD_COMPILER_STRING
