@@ -2,7 +2,7 @@ env:
     TG_BOT_TOKEN: "ENCRYPTED[9346d19e02d103ba6f55c3e41a8eb450d5651288d99a5a9c6d072c4c129b1d84f1faa23131f8311618ed87c4f22f14d0]"
     CHATID: "ENCRYPTED[0f26fa1266a27f073f855bdd5255499ab856efb8796e8daafa4aa6e5b8953c16c8f5eac3c8fb2394c7ed1952a7734a2f]"
     CIRRUS_CLONE_DEPTH: 1
-    CIRRUS_WORKING_DIR: "~/tmp"
+    CIRRUS_WORKING_DIR: "/home"
 task:
     name: Android Kernel Build
     timeout_in: 120m # max 120m
