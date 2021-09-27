@@ -95,5 +95,5 @@ gen_zip() {
 
 clone
 exports
-#build_kernel
+build_kernel
 echo $KBUILD_COMPILER_STRING
