@@ -5,7 +5,7 @@ env:
     CIRRUS_WORKING_DIR: "/home"
 task:
     name: Android Kernel Build
-    timeout_in: 120m # max 120m
+    timeout_in: 120m # max 120minutes
     container:
       image: 54b1d/kernel_build:latest
       cpu: 8 # max 8
