@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 git clone --depth 1 -j 16 --single-branch https://github.com/54b1d/kernel_xiaomi_rosy -b $1 kernel
 cd kernel
 
