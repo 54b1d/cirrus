@@ -9,21 +9,6 @@ KERNEL_NAME="Tortiose_3.18"
 PREFIX=`date +"%Y%m%d%H%M"`
 KBUILD_COMPILER_STRING=$($KERNEL_DIR/aarch64-linux-android-4.9/bin/aarch64-linux-android-gcc --version|grep GCC)
 
-if [ $2 == "nolto" ]
-then
-  sed -i "s/CONFIG_LTO=y/CONFIG_LTO=n/" arch/arm64/configs/rosy-perf_defconfig
-  sed -i "s/CONFIG_LTO_GCC=y/CONFIG_LTO_GCC=n/" arch/arm64/configs/rosy-perf_defconfig
-  echo ""
-  echo "No LTO"
-  echo ""
-  export LTO="No"
-elif $2 == 'random'
-  echo ""
-  echo "LTO Build"
-  echo ""
-  export LTO="Yes"
-fi
-
 exports() {
 	export KBUILD_BUILD_USER="54b1d"
 	export KBUILD_BUILD_HOST="Cirus"
@@ -68,7 +53,7 @@ tg_post_build() {
 build_kernel() {
 	make O=out $DEFCONFIG
 	BUILD_START=$(date +"%s")
-	tg_post_msg "<b>NEW CI $KERNEL_NAME-rosy Build Triggered</b>%0A<b>Date : </b><code>$(TZ=Asia/Dhaka date)</code>%0A<b>Device : </b><code>rosy</code>%0A<b>Pipeline Host : </b><code>Github Actions</code>%0A<b>Host Core Count : </b><code>$PROCS</code>%0A<b>Compiler Used : </b><code>$KBUILD_COMPILER_STRING</code>%0A<b>LTO : </b><code>$LTO</code>" "$CHATID"
+	tg_post_msg "<b>NEW CI $KERNEL_NAME-rosy Build Triggered</b>%0A<b>Date : </b><code>$(TZ=Asia/Dhaka date)</code>%0A<b>Device : </b><code>rosy</code>%0A<b>Pipeline Host : </b><code>Github Actions</code>%0A<b>Host Core Count : </b><code>$PROCS</code>%0A<b>Compiler Used : </b><code>$KBUILD_COMPILER_STRING</code>" "$CHATID"
 	make -j$PROCS O=out \
 		CROSS_COMPILE=$CROSS_COMPILE 2>&1 | tee error.log
 	BUILD_END=$(date +"%s")
@@ -90,7 +75,7 @@ gen_zip() {
 	cd $KERNEL_DIR/anykernel
 	zip -r9 $KERNEL_NAME-rosy-$PREFIX.zip * -x .git README.md
 	MD5CHECK=$(md5sum $KERNEL_NAME-rosy-$PREFIX.zip | cut -d' ' -f1)
-	tg_post_build $KERNEL_NAME-rosy-$PREFIX.zip "$CHATID" "Build took : $((DIFF / 60)) minute(s) and $((DIFF % 60)) second(s) | LTO : $LTO | MD5 Checksum : <code>$MD5CHECK</code>"
+	tg_post_build $KERNEL_NAME-rosy-$PREFIX.zip "$CHATID" "Build took : $((DIFF / 60)) minute(s) and $((DIFF % 60)) second(s) | MD5 Checksum : <code>$MD5CHECK</code>"
 	cd ..
 }
 
