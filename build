@@ -14,7 +14,7 @@ exports() {
 	export KBUILD_BUILD_HOST="Cirus"
 	export ARCH=arm64
 	export SUBARCH=arm64
-	export CROSS_COMPILE=$KERNEL_DIR/aarch64-linux-android-4.9/bin/aarch64-linux-android-ld
+	export CROSS_COMPILE=$KERNEL_DIR/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 	export BOT_MSG_URL="https://api.telegram.org/bot$TG_BOT_TOKEN/sendMessage"
 	export BOT_BUILD_URL="https://api.telegram.org/bot$TG_BOT_TOKEN/sendDocument"
 	export PROCS=$(nproc --all)
