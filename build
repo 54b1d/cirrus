@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
-git clone --depth 1 -j 16 --single-branch https://github.com/54b1d/kernel_xiaomi_rosy -b $1 kernel
+#build kernel 3.18 with gcc 4.9
+
+git clone --depth 1 -j 16 --single-branch https://github.com/54b1d/android_kernel_xiaomi_rosy -b $1 kernel
 cd kernel
 
 KERNEL_DIR=$PWD
-KERNEL_NAME="Tortiose_4.9_BE"
+KERNEL_NAME="Tortiose_3.18"
 PREFIX=`date +"%Y%m%d%H%M"`
-KBUILD_COMPILER_STRING=$($KERNEL_DIR/gcc-arm64/bin/aarch64-elf-gcc --version|grep GCC)
+KBUILD_COMPILER_STRING=$($KERNEL_DIR/aarch64-linux-android-4.9/bin/aarch64-linux-android-gcc --version|grep GCC)
 
 if [ $2 == "nolto" ]
 then
@@ -15,7 +17,7 @@ then
   echo "No LTO"
   echo ""
   export LTO="No"
-else
+elif $2 == 'random'
   echo ""
   echo "LTO Build"
   echo ""
@@ -27,7 +29,7 @@ exports() {
 	export KBUILD_BUILD_HOST="Cirus"
 	export ARCH=arm64
 	export SUBARCH=arm64
-	export CROSS_COMPILE=$KERNEL_DIR/gcc-arm64/bin/aarch64-elf-
+	export CROSS_COMPILE=$KERNEL_DIR/aarch64-linux-android-4.9/bin/aarch64-linux-android-ld
 	export BOT_MSG_URL="https://api.telegram.org/bot$TG_BOT_TOKEN/sendMessage"
 	export BOT_BUILD_URL="https://api.telegram.org/bot$TG_BOT_TOKEN/sendDocument"
 	export PROCS=$(nproc --all)
@@ -40,7 +42,7 @@ clone() {
 
 	echo " "
 	echo "★★Cloning GCC Toolchain from GitHub .."
-	git clone --progress -j 16 --depth 1 --single-branch https://github.com/mvaisakh/gcc-arm64
+	git clone --progress -j 16 --depth 1 --single-branch https://github.com/54b1d/aarch64-linux-android-4.9
 	#https://github.com/54b1d/gcc-arm64/ -b gcc-master
 	echo "★★GCC cloning done"
 	echo ""
