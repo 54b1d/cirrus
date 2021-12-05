@@ -12,4 +12,4 @@ task:
       memory: 32G # max 32G
     build_script:
       - chmod +x *
-      - ./build lineage-17.1 #./build branch_name
+      - ./build test #./build branch_name
