@@ -19,7 +19,7 @@ exports() {
 	export BOT_BUILD_URL="https://api.telegram.org/bot$TG_BOT_TOKEN/sendDocument"
 	export PROCS=$(nproc --all)
 
-	DEFCONFIG=rosy-perf_defconfig
+	DEFCONFIG=rosy-baunil_defconfig
 
 }
 
