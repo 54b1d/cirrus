@@ -1,5 +1,5 @@
 env:
-    TG_BOT_TOKEN: "ENCRYPTED[9346d19e02d103ba6f55c3e41a8eb450d5651288d99a5a9c6d072c4c129b1d84f1faa23131f8311618ed87c4f22f14d0]"
+    TG_BOT_TOKEN: "ENCRYPTED[46d11beecc5d0f9eeff9fbbc9f2c08fb34ab3418cdef7ec1bb2417c5d8d28fc7801e1c6e5351fc87ef222e692b54cd7e]"
     CHATID: "ENCRYPTED[0f26fa1266a27f073f855bdd5255499ab856efb8796e8daafa4aa6e5b8953c16c8f5eac3c8fb2394c7ed1952a7734a2f]"
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: "/home"
@@ -12,4 +12,4 @@ task:
       memory: 32G # max 32G
     build_script:
       - chmod +x *
-      - ./build tortoise-lmk #./build branch_name nolto
+      - #./build tortoise-lmk #./build branch_name nolto
