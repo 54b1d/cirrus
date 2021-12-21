@@ -40,7 +40,7 @@ clone() {
 
 	echo " "
 	echo "★★Cloning GCC Toolchain from GitHub .."
-	git clone --progress -j 16 --depth 1 --single-branch https://github.com/mvaisakh/gcc-arm64
+	git clone --progress -j 16 --depth 1 --single-branch https://github.com/Pulkit077/gcc-arm64
 	#https://github.com/54b1d/gcc-arm64/ -b gcc-master
 	echo "★★GCC cloning done"
 	echo ""
@@ -96,4 +96,3 @@ gen_zip() {
 clone
 exports
 build_kernel
-echo $KBUILD_COMPILER_STRING
