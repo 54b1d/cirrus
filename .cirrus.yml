@@ -12,4 +12,4 @@ task:
       memory: 32G # max 32G
     build_script:
       - chmod +x *
-      - ./build lmk297 # ./build branch_name nolto
+      - ./build lmk # ./build branch_name nolto
