@@ -6,7 +6,7 @@ env:
     CIRRUS_WORKING_DIR: "/home" # Where to clone repo
 task:
     name: rom build # Project name
-    timeout_in: 20m # Otherwise it will timeout at 60m automatically, 120m highest in free account 
+    timeout_in: 120m # Otherwise it will timeout at 60m automatically, 120m highest in free account 
     container:
       image: 54b1d/kernel_build:latest
       cpu: 8
