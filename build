@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 #build kernel 3.18 with gcc 4.9
 
-git clone --depth 1 -j 16 --single-branch https://github.com/54b1d/android_kernel_xiaomi_rosy -b $1 kernel
+#git clone --depth 1 -j 16 --single-branch https://github.com/54b1d/android_kernel_xiaomi_rosy -b $1 kernel
+git clone --depth 1 -j 16 --single-branch https://github.com/rayrzy/kernel_xiaomi_rosy -b ten kernel
 cd kernel
 
 KERNEL_DIR=$PWD
-KERNEL_NAME="Tortiose_3.18"
+KERNEL_NAME="Zinc_3.18"
 PREFIX=`date +"%Y%m%d%H%M"`
 KBUILD_COMPILER_STRING=$($KERNEL_DIR/aarch64-linux-android-4.9/bin/aarch64-linux-android-gcc --version|grep GCC)
 
@@ -19,7 +20,7 @@ exports() {
 	export BOT_BUILD_URL="https://api.telegram.org/bot$TG_BOT_TOKEN/sendDocument"
 	export PROCS=$(nproc --all)
 
-	DEFCONFIG=rosy-baunil_defconfig
+	DEFCONFIG=zinc_defconfig
 
 }
 
