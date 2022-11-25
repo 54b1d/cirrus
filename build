@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-git clone --depth 1 -j 16 --single-branch https://github.com/54b1d/kernel_xiaomi_rosy -b $1 kernel
-cd kernel
+git clone --depth 1 -j 16 --single-branch https://github.com/54b1d/PrivateNotes.git -b master privateNotes
+cd privateNotes
 
 KERNEL_DIR=$PWD
 KERNEL_NAME="Tortiose_4.9_BE"
