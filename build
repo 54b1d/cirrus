@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-git clone --depth 1 -j 16 --single-branch https://github.com/54b1d/kernel_xiaomi_rosy -b $1 kernel
+git clone --depth 1 -j 16 --single-branch https://github.com/54b1d/android_kernel_xiaomi_rosy_bunilla -b $1 kernel
 cd kernel
 
 KERNEL_DIR=$PWD
-KERNEL_NAME="Tortiose_4.9_BE"
+KERNEL_NAME="Tortiose_B_4.9_BE"
 PREFIX=`date +"%Y%m%d%H%M"`
 KBUILD_COMPILER_STRING=$($KERNEL_DIR/gcc-arm64/bin/aarch64-elf-gcc --version|grep GCC)
 
