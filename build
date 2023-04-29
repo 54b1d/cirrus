@@ -28,6 +28,7 @@ exports() {
 	export ARCH=arm64
 	export SUBARCH=arm64
 	export CROSS_COMPILE=$KERNEL_DIR/gcc-arm64/bin/aarch64-elf-
+	export CROSS_COMPILE_ARM32=$KERNEL_DIR/gcc-arm/arm-eabi-
 	export BOT_MSG_URL="https://api.telegram.org/bot$TG_BOT_TOKEN/sendMessage"
 	export BOT_BUILD_URL="https://api.telegram.org/bot$TG_BOT_TOKEN/sendDocument"
 	export PROCS=$(nproc --all)
@@ -40,7 +41,8 @@ clone() {
 
 	echo " "
 	echo "★★Cloning GCC Toolchain from GitHub .."
-	git clone --progress -j 16 --depth 1 --single-branch https://github.com/Pulkit077/gcc-arm64
+	git clone --progress -j 16 --depth 1 --single-branch https://github.com/mvaisakh/gcc-arm64
+	git clone --progress -j 16 --depth 1 --single-branch https://github.com/mvaisakh/gcc-arm
 	#https://github.com/54b1d/gcc-arm64/ -b gcc-master
 	echo "★★GCC cloning done"
 	echo ""
